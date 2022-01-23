@@ -7,7 +7,7 @@ public class Main {
         Varasto mehua = new Varasto(100.0);
         Varasto olutta = new Varasto(100.0, 20.2);
 
-        System.out.println("Luonnin j√§lkeen:");
+        System.out.println("Luonnin j‰lkeen:");
         System.out.println("Mehuvarasto: " + mehua);
         System.out.println("Olutvarasto: " + olutta);
 
@@ -17,7 +17,7 @@ public class Main {
         System.out.println("paljonkoMahtuu = " + olutta.paljonkoMahtuu());
 
         System.out.println("Mehusetterit:");
-        System.out.println("Lis√§t√§√§n 50.7");
+        System.out.println("Lis‰t‰‰n 50.7");
         mehua.lisaaVarastoon(50.7);
         System.out.println("Mehuvarasto: " + mehua);
         System.out.println("Otetaan 3.14");

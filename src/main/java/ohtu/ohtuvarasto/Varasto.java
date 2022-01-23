@@ -12,9 +12,9 @@ public class Varasto {
             this.tilavuus = tilavuus;
         } else // virheellinen, nollataan
         {
-            this.tilavuus = 0.0;  // => k√§ytt√∂kelvoton varasto
+            this.tilavuus = 0.0;  // => k‰ytt√∂kelvoton varasto
         }
-        saldo = 0;     // oletus: varasto on tyhj√§
+        saldo = 0;     // oletus: varasto on tyhj‰
     }
 
     public Varasto(double tilavuus, double alkuSaldo) { // kuormitetaan
@@ -22,7 +22,7 @@ public class Varasto {
             this.tilavuus = tilavuus;
         } else // virheellinen, nollataan
         {
-            this.tilavuus = 0.0;  // => k√§ytt√∂kelvoton varasto
+            this.tilavuus = 0.0;  // => k‰ytt√∂kelvoton varasto
         }
         if (alkuSaldo < 0.0) {
             this.saldo = 0.0;
@@ -30,7 +30,7 @@ public class Varasto {
         {
             this.saldo = alkuSaldo;
         } else {
-            this.saldo = tilavuus;  // t√§yteen ja ylim√§√§r√§ hukkaan!
+            this.saldo = tilavuus;  // t‰yteen ja ylim‰‰r‰ hukkaan!
         }
     }
 
@@ -44,40 +44,40 @@ public class Varasto {
     }
 
     public double paljonkoMahtuu() {  // huom: ominaisuus voidaan my√∂s laskea
-        return tilavuus - saldo;        //  ei tarvita erillist√§ kentt√§√§ vielaTilaa tms.
+        return tilavuus - saldo;        //  ei tarvita erillist‰ kentt‰‰ vielaTilaa tms.
     }
 
     // --- asettavat aksessorit eli setterit: ---
     public void lisaaVarastoon(double maara) {
-        if (maara < 0) // virhetilanteessa voidaan tehd√§ 
+        if (maara < 0) // virhetilanteessa voidaan tehd‰ 
         {
-            return;       // t√§llainen pikapoistuminenkin!
+            return;       // t‰llainen pikapoistuminenkin!
         }
         if (maara <= paljonkoMahtuu()) // omia aksessoreita voi kutsua
         {
             saldo = saldo + maara;          // ihan suoraan sellaisinaan
         } else {
-            saldo = tilavuus;  // t√§yteen ja ylim√§√§r√§ hukkaan!
+            saldo = tilavuus;  // t‰yteen ja ylim‰‰r‰ hukkaan!
         }
     }
 
     public double otaVarastosta(double maara) {
-        if (maara < 0) // virhetilanteessa voidaan tehd√§ 
+        if (maara < 0) // virhetilanteessa voidaan tehd‰ 
         {
-            return 0.0;   // t√§llainen pikapoistuminenkin!
+            return 0.0;   // t‰llainen pikapoistuminenkin!
         }
-        if (maara > saldo) {          // annetaan mit√§ voidaan
+        if (maara > saldo) {          // annetaan mit‰ voidaan
             double kaikkiMitaVoidaan = saldo;
-            saldo = 0.0;               // ja tyhj√§ksi menee
+            saldo = 0.0;               // ja tyhj‰ksi menee
             return kaikkiMitaVoidaan;  // poistutaan saman tien
         }
-        // jos t√§nne p√§√§st√§√§n, kaikki pyydetty voidaan antaa
-        saldo = saldo - maara;  // v√§hennet√§√§n annettava saldosta
+        // jos t‰nne p‰‰st‰‰n, kaikki pyydetty voidaan antaa
+        saldo = saldo - maara;  // v‰hennet‰‰n annettava saldosta
         return maara;
     }
 
     // --- Merkkijonoesitys Varasto-oliolle: ----
     public String toString() {
-        return ("saldo = " + saldo + ", viel√§ tilaa " + paljonkoMahtuu());
+        return ("saldo = " + saldo + ", viel‰ tilaa " + paljonkoMahtuu());
     }
 }
