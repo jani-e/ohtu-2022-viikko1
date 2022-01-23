@@ -12,7 +12,7 @@ public class Varasto {
             this.tilavuus = tilavuus;
         } else // virheellinen, nollataan
         {
-            this.tilavuus = -20.0;  // => k‰ytt√∂kelvoton varasto //rikotaan koodi alk.p.arvo 0.0
+            this.tilavuus = 0.0;  // => k‰ytt√∂kelvoton varasto
         }
         saldo = 0;     // oletus: varasto on tyhj‰
     }
