@@ -10,27 +10,22 @@ public class Varasto {
     public Varasto(double tilavuus) {  // tilavuus on annettava
         if (tilavuus > 0.0) {
             this.tilavuus = tilavuus;
-        } else // virheellinen, nollataan
-        {
+        } else {// virheellinen, nollataan
             this.tilavuus = 0.0;  // => k‰ytt√∂kelvoton varasto
         }
         saldo = 0;     // oletus: varasto on tyhj‰
     }
 
     public Varasto(double tilavuus, double alkuSaldo) { // kuormitetaan
+        this.tilavuus = 0.0;
+        this.saldo = 0.0;
         if (tilavuus > 0.0) {
             this.tilavuus = tilavuus;
-        } else // virheellinen, nollataan
-        {
-            this.tilavuus = 0.0;  // => k‰ytt√∂kelvoton varasto
         }
-        if (alkuSaldo < 0.0) {
-            this.saldo = 0.0;
-        } else if (alkuSaldo <= tilavuus) // mahtuu
-        {
+        if (alkuSaldo <= tilavuus) {
             this.saldo = alkuSaldo;
         } else {
-            this.saldo = tilavuus;  // t‰yteen ja ylim‰‰r‰ hukkaan!
+            this.saldo = tilavuus;
         }
     }
 
@@ -49,12 +44,10 @@ public class Varasto {
 
     // --- asettavat aksessorit eli setterit: ---
     public void lisaaVarastoon(double maara) {
-        if (maara < 0) // virhetilanteessa voidaan tehd‰ 
-        {
+        if (maara < 0) { // virhetilanteessa voidaan tehd‰ 
             return;       // t‰llainen pikapoistuminenkin!
         }
-        if (maara <= paljonkoMahtuu()) // omia aksessoreita voi kutsua
-        {
+        if (maara <= paljonkoMahtuu()) { // omia aksessoreita voi kutsua
             saldo = saldo + maara;          // ihan suoraan sellaisinaan
         } else {
             saldo = tilavuus;  // t‰yteen ja ylim‰‰r‰ hukkaan!
@@ -62,8 +55,7 @@ public class Varasto {
     }
 
     public double otaVarastosta(double maara) {
-        if (maara < 0) // virhetilanteessa voidaan tehd‰ 
-        {
+        if (maara < 0) {// virhetilanteessa voidaan tehd‰ 
             return 0.0;   // t‰llainen pikapoistuminenkin!
         }
         if (maara > saldo) {          // annetaan mit‰ voidaan
